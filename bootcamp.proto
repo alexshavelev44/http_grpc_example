@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package http_grpc_example;
+option go_package = " github.com/alexshavelev44/http-grpc-example;http_grpc_example";
+
+service Bootcamp {
+  // Unless you are very sure of what you're doing always follow the pattern
+  // rpc {Name} ({Name}Request) returns ({Name}Response);
+  // This allows us to extend each RPC with new request and response parameters.
+  // Please note that any such extensions must be backward and forward compatible.
+  rpc GetAllMembers(GetAllMembersRequest) returns (GetAllMembersResponse);
+  rpc GetMember(GetMemberRequest) returns (GetMemberResponse);
+  rpc CreateMember(CreateMemberRequest) returns (CreateMemberResponse);
+}
+
+message Member {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message GetAllMembersRequest {
+
+}
+
+message GetAllMembersResponse {
+  repeated Member members = 1;
+}
+
+message GetMemberRequest {
+  string id = 1;
+}
+
+message GetMemberResponse {
+  Member member = 1;
+}
+
+message CreateMemberRequest {
+  string name = 1;
+  string email = 2;
+}
+
+message CreateMemberResponse {
+  string id = 1;
+}

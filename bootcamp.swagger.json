@@ -1,0 +1,159 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "bootcamp.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "Bootcamp"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/members": {
+      "post": {
+        "operationId": "Bootcamp_CreateMember",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/http_grpc_exampleCreateMemberResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/http_grpc_exampleCreateMemberRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Bootcamp"
+        ]
+      }
+    },
+    "/ping": {
+      "get": {
+        "summary": "Unless you are very sure of what you're doing always follow the pattern\nrpc {Name} ({Name}Request) returns ({Name}Response);\nThis allows us to extend each RPC with new request and response parameters.\nPlease note that any such extensions must be backward and forward compatible.",
+        "operationId": "Bootcamp_GetAllMembers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/http_grpc_exampleGetAllMembersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Bootcamp"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "http_grpc_exampleCreateMemberRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "http_grpc_exampleCreateMemberResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "http_grpc_exampleGetAllMembersResponse": {
+      "type": "object",
+      "properties": {
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/http_grpc_exampleMember"
+          }
+        }
+      }
+    },
+    "http_grpc_exampleGetMemberResponse": {
+      "type": "object",
+      "properties": {
+        "member": {
+          "$ref": "#/definitions/http_grpc_exampleMember"
+        }
+      }
+    },
+    "http_grpc_exampleMember": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
