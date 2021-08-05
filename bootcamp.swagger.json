@@ -17,6 +17,27 @@
   ],
   "paths": {
     "/members": {
+      "get": {
+        "summary": "Unless you are very sure of what you're doing always follow the pattern\nrpc {Name} ({Name}Request) returns ({Name}Response);\nThis allows us to extend each RPC with new request and response parameters.\nPlease note that any such extensions must be backward and forward compatible.",
+        "operationId": "Bootcamp_GetAllMembers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/http_grpc_exampleGetAllMembersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Bootcamp"
+        ]
+      },
       "post": {
         "operationId": "Bootcamp_CreateMember",
         "responses": {
@@ -43,29 +64,6 @@
             }
           }
         ],
-        "tags": [
-          "Bootcamp"
-        ]
-      }
-    },
-    "/ping": {
-      "get": {
-        "summary": "Unless you are very sure of what you're doing always follow the pattern\nrpc {Name} ({Name}Request) returns ({Name}Response);\nThis allows us to extend each RPC with new request and response parameters.\nPlease note that any such extensions must be backward and forward compatible.",
-        "operationId": "Bootcamp_GetAllMembers",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/http_grpc_exampleGetAllMembersResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
         "tags": [
           "Bootcamp"
         ]

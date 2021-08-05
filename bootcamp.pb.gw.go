@@ -220,7 +220,7 @@ func RegisterBootcampHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 }
 
 var (
-	pattern_Bootcamp_GetAllMembers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"ping"}, ""))
+	pattern_Bootcamp_GetAllMembers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"members"}, ""))
 
 	pattern_Bootcamp_CreateMember_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"members"}, ""))
 )
